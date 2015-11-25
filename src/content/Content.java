@@ -1,17 +1,17 @@
 package content;
 
 /**
- * Interface to manage the contents letter
- * @author dubois bellamy
+ * Interface décrivant le contenu d'une lettre
+ * @author Place Leclercq
  *
  */
-public  interface Content {
+public interface Content {
 	
 	/**
-	 * Get the description of this content
-	 * @return the description of this content
+	 * Contient la description du contenu de la lettre.
+	 * @return la description du contenu de la lettre.
 	 */
-	public String getDescription() ;
+	public String getDescription();
 	
 }
 
