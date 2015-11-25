@@ -10,7 +10,7 @@ public class Account{
 	
 	/**
 	 * Constructeur de base d'un compte en banque.
-	 * @param établit le montant initial du compte en banque au moment de son ouverture.
+	 * @param balance Le montant initial du compte en banque au moment de son ouverture.
 	 */
 	public Account(int balance) {
 		this.balance = balance;
@@ -26,7 +26,7 @@ public class Account{
 	
 	/**
 	 * Retire un montant d'argent du compte en banque.
-	 * @param le montant d'argent devant être retiré du compte en banque.
+	 * @param amount Le montant d'argent devant être retiré du compte en banque.
 	 */
 	public void withdraw(int amount) {
 		this.balance = this.balance - amount;
@@ -34,7 +34,7 @@ public class Account{
 	
 	/**
 	 * Ajoute un montant d'argent à ce compte en banque.
-	 * @param le montant d'argent devant être ajouté au compte en banque.
+	 * @param amount Le montant d'argent devant être ajouté au compte en banque.
 	 */
 	public void credit(int amount) {
 		this.balance = this.balance + amount;
