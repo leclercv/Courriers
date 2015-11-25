@@ -10,7 +10,7 @@ public class MoneyContent implements Content {
 	
 	/**
 	 * Constructeur de base d'un MoneyContent.
-	 * @param le montant de l'argent contenu dans la lettre.
+	 * @param amount Le montant d'argent contenu dans la lettre.
 	 */
 	public MoneyContent(int amount) {
 		this.amount = amount;
