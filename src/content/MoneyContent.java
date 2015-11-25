@@ -1,31 +1,32 @@
 package content;
 
 /**
- * Class to manage the money content
- * @author dubois bellamy
+ * Class représentant un contenu de type monnétaire.
+ * @author Place Leclercq
  *
  */
 public class MoneyContent implements Content {
 	private int amount;
 	
 	/**
-	 * Constructor of a new money content
-	 * @param amount the money in this content
+	 * Constructeur de base d'un MoneyContent.
+	 * @param le montant de l'argent contenu dans la lettre.
 	 */
 	public MoneyContent(int amount) {
 		this.amount = amount;
 	}
 	
 	/**
-	 * @see Content#getDescription()
+	 * Renvoie la description du contenu de la lettre.
+	 * @return la description du contenu de la lettre.
 	 */
 	public String getDescription() {
 		return "";
 	}
 	
 	/**
-	 * Get the amount of this content
-	 * @return the amount of this content
+	 * Renvoie le montant du contenu de la lettre.
+	 * @return le montant du contenu de la lettre.
 	 */
 	public int getAmount() {
 		return this.amount;
