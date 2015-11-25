@@ -1,43 +1,43 @@
 package entity;
 
 /**
- * Class to manage a bank account
- * @author dubois bellamy
+ * Class représentant le compte en banque d'un habitant.
+ * @author Place Leclercq
  *
  */
 public class Account{
 	private int balance;
 	
 	/**
-	 * Constructor of a new bank account
-	 * @param balance the initial price of this account
+	 * Constructeur de base d'un compte en banque.
+	 * @param établit le montant initial du compte en banque au moment de son ouverture.
 	 */
 	public Account(int balance) {
 		this.balance = balance;
 	}
 	
 	/**
-	 * Get the amount of this account
-	 * @return the amount of this account
+	 * Renvoie le montant d'argent disponible sur le compte en banque.
+	 * @return le montant d'argent disponible sur le compte en banque.
 	 */
 	public int getBalance() {
 		return this.balance;	
 	}
 	
 	/**
-	 * Remove amount to this account balance
-	 * @param amount the cost to removing
+	 * Retire un montant d'argent du compte en banque.
+	 * @param le montant d'argent devant être retiré du compte en banque.
 	 */
 	public void withdraw(int amount) {
-		this.balance -= amount;
+		this.balance = this.balance - amount;
 	}
 	
 	/**
-	 * Add amount to this account balance
-	 * @param amount to add
+	 * Ajoute un montant d'argent à ce compte en banque.
+	 * @param le montant d'argent devant être ajouté au compte en banque.
 	 */
 	public void credit(int amount) {
-		this.balance += amount;
+		this.balance = this.balance + amount;
 	}
 	
 }
