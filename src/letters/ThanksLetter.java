@@ -14,8 +14,8 @@ public class ThanksLetter extends SimpleLetter {
 	 * @param receiver L'habitant destinataire de la lettre.
 	 * @param attachment La lettre de promesse pour laquelle sont formulés les remerciements.
 	 */
-	public ThanksLetter(Inhabitant sender, Inhabitant reciever, PromisoryNote attachment) {
-		super(sender, reciever, new TextContent("thanks for a promissory note letter whose content is a money content ("+attachment.getContent().getAmount()+")"));
+	public ThanksLetter(Inhabitant sender, Inhabitant receiver, PromisoryNote attachment) {
+		super(sender, receiver, new TextContent("thanks for a promissory note letter whose content is a money content ("+attachment.getContent().getAmount()+")"));
 	}
 
 	/**
