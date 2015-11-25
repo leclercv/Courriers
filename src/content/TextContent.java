@@ -15,7 +15,7 @@ public class TextContent implements Content{
 	
 /**
  * Modifie le message de la lettre.
- * @param le message qui doit être assigné à la lettre.
+ * @param message Le message qui doit être assigné à la lettre.
  */
 	public TextContent(String message){
 		this.message = message;
