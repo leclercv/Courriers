@@ -10,15 +10,13 @@ import entity.Inhabitant;
 
 /**
  * 
- * @author dubois bellamy
+ * @author Place Leclercq
  *
  */
 public class Main {
 	private static final int CITY_SIZE = 100;
 	private static final int CITY_NAME_SIZE = 64;
 	private static final String SEPARATOR = "**************************************" ;
-
-	// Use to know which letter can be sent or not
 	private static Random random;
 	
 	public static void main(String[] args) {
@@ -52,9 +50,9 @@ public class Main {
 	}
 	
 	/**
-	 * Simulate one day with random values
-	 * @param city
-	 * @param inhabitants
+	 * Simule une journée pour une ville et des habitants donnés.
+	 * @param city La ville pour laquelle la journée doit être simulée.
+	 * @param inhabitants Les habitants pour lesquels la journée doit être simulée.
 	 */
 	private static void doOneDay(City city, ArrayList<Inhabitant> inhabitants, boolean allowSendLetter){
 		Inhabitant sender = null;
@@ -62,10 +60,8 @@ public class Main {
 		Letter<?> tmp = null;
 		List<Letter<?>> tmpRecieveLetter = null;
 		
-		// The number of letter to send 
 		int nbLetterSend = random.nextInt(10);
 		
-		// Recieve letter session
 		for (Inhabitant inhabitant : inhabitants) {
 			tmpRecieveLetter = inhabitant.getRecieveLetters();
 			
@@ -75,23 +71,18 @@ public class Main {
 					letter.doAction();
 					
 				}
-				// Remove all old letters
 				inhabitant.setRecieveLetters(new ArrayList<Letter<?>>());
 			}
 		}
 		
 		if(allowSendLetter){
-			// Send randomize letter session
 			for (int i = 0; i < nbLetterSend; i++) {
 				sender = inhabitants.get(random.nextInt(CITY_SIZE));
 				receiver = inhabitants.get(random.nextInt(CITY_SIZE));
 				
 				if(!sender.equals(receiver)){
-					// Generate a letter
 					tmp = sender.makeLetter(receiver);
-					// Simulate the payment
 					sender.sendLetter(tmp);
-					// Simulate the post of the letter
 					city.sendLetter(tmp);
 					
 					System.out.println("-> " + sender.getName()+" mails "+tmp.getDescription()+" to "+receiver.getName()+" for cost of "+tmp.getCost()+" euro(s)");
@@ -103,8 +94,8 @@ public class Main {
 	}
 	
 	/**
-	 * Create city with a randomize name
-	 * @return a city with a randomize name
+	 * Crée une ville avec un nom aléatoire.
+	 * @return une ville avec un nom aléatoire.
 	 */
 	private static City createCity() {
 		String cityName = "";
@@ -119,8 +110,9 @@ public class Main {
 	}
 	
 	/**
-	 * Fill the habitants array passed in parameters with new habitants
-	 * @param habitants
+	 * Crée un tableau composé d'habitants pour la ville passée en paramètre.
+	 * @param city La ville devant être peuplée d'habitants.
+	 * @return inhabitantList La liste des habitants générés pour la ville.
 	 */
 	private static ArrayList<Inhabitant> createInhabitants(City city) {
 		ArrayList<Inhabitant> inhabitantList = new ArrayList<>(CITY_SIZE);
@@ -132,6 +124,10 @@ public class Main {
 		return inhabitantList;
 	}
 	
+	/**
+	 * Renvoie un boolean permettant de savoir s'il reste des lettres à distribuer dans la ville.
+	 * @return un boolean permettant de savoir s'il reste des lettres à distribuer dans la ville.
+	 */
 	private static boolean stillLetter(ArrayList<Inhabitant> inhabitants){
 		
 		for (Inhabitant hab : inhabitants) {
