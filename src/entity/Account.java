@@ -39,6 +39,5 @@ public class Account{
 	public void credit(int amount) {
 		this.balance = this.balance + amount;
 	}
-	
 }
 
