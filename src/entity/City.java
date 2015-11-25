@@ -6,8 +6,8 @@ import java.util.List;
 import letters.Letter;
 
 /**
- * Class to manage a city
- * @author dubois bellamy
+ * Class représentant une ville.
+ * @author Place Leclercq
  *
  */
 public class City
@@ -16,8 +16,8 @@ public class City
 	private String name;
 	
 	/**
-	 * Constructor of a new city
-	 * @param name
+	 * Constructeur de base d'une ville.
+	 * @param name Le nom de la ville.
 	 */
 	public City(String name) {
 		this.name = name;
@@ -25,8 +25,8 @@ public class City
 	}
 	
 	/**
-	 * Add the letter in the post box letter of this city
-	 * @param letter the letter to add in the post box
+	 * Ajoute la lettre au bureau de poste de la ville.
+	 * @param letter La lettre devant être délivrée dans la ville.
 	 */
 	public void sendLetter(Letter<?> letter) {
 		this.postbox.add(letter);
@@ -34,7 +34,7 @@ public class City
 	}
 	
 	/**
-	 * Distribute all letters
+	 * Distribue l'ensemble des lettres devant être distribuée dans la ville.
 	 */
 	@SuppressWarnings("unchecked")
 	public void distributeLetters() {
@@ -47,16 +47,16 @@ public class City
 	}
 	
 	/**
-	 * Get the name of this city
-	 * @return the name of this city
+	 * Renvoie le nom de la ville.
+	 * @return le nom de la ville.
 	 */
 	public String getName() {
 		return this.name;
 	}
 	
 	/**
-	 * Get the post box of this city
-	 * @return the post box of this city
+	 * Renvoie le bureau de poste de la ville.
+	 * @return le bureau de poste de la ville.
 	 */
 	public List<Letter<?>> getPostBox() {
 		return this.postbox;
