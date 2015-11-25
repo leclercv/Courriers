@@ -12,7 +12,7 @@ import content.MoneyContent;
 import content.TextContent;
 
 /**
- * Class représentant un habitant.
+ * Class repr��sentant un habitant.
  * @author Place Leclercq
  *
  */
@@ -25,7 +25,7 @@ public class Inhabitant {
 	
 	/**
 	 * Constructeur de base d'un habitant
-	 * @param city La ville où vit cet habitant.
+	 * @param city La ville o�� vit cet habitant.
 	 * @param name Le nom de cet habitant.
 	 */
 	public Inhabitant(City city, String name) {
@@ -33,20 +33,20 @@ public class Inhabitant {
 		this.city = city;
 		this.account = new Account(5000);
 		random = new Random();
-		recieveLetters = new ArrayList<>();
+		receiveLetters = new ArrayList<>();
 	}
 	
 	/**
-	 * Génère une lettre aléatoire.
-	 * @param receiver L'habitant auquel la lettre est destinée.
-	 * @return Renvoie la lettre générée.
+	 * G��n��re une lettre al��atoire.
+	 * @param receiver L'habitant auquel la lettre est destin��e.
+	 * @return Renvoie la lettre g��n��r��e.
 	 */
 	public Letter<?> makeLetter(Inhabitant receiver){
 		Letter<?> simpleContentLetter = null;
 		Letter<?> complexeLetter = null;
 		Letter<?> finalLetter = null;
 		
-		// Sélectionne aléatoirement le type de lettre générée.
+		// S��lectionne al��atoirement le type de lettre g��n��r��e.
 		switch(random.nextInt(2)){
 		// Lettre simple
 		case 0 :
@@ -62,9 +62,9 @@ public class Inhabitant {
 			break;
 		}
 		
-		// Sélectionne aléatoirement le type d'envoi de la lettre générée.
+		// S��lectionne al��atoirement le type d'envoi de la lettre g��n��r��e.
 		switch(random.nextInt(3)){
-		// Lettre enregistrée
+		// Lettre enregistr��e
 		case 0 :
 			complexeLetter = new RegisteredLetter(this, receiver, simpleContentLetter);
 			break;
@@ -73,15 +73,15 @@ public class Inhabitant {
 		case 1 :
 			complexeLetter = new UrgentLetter(this, receiver, simpleContentLetter);
 			break;
-		// Pas d'envoi spécial
+		// Pas d'envoi sp��cial
 		case 2 :
 			complexeLetter = simpleContentLetter;
 			break;
 		}
 		
-		// Sélectionne aléatoire le deuxième type d'envoi de la lettre générée.
+		// S��lectionne al��atoire le deuxi��me type d'envoi de la lettre g��n��r��e.
 		switch(random.nextInt(3)){
-		// Lettre enregistrée
+		// Lettre enregistr��e
 		case 0 :
 			finalLetter = new RegisteredLetter(this, receiver, complexeLetter);
 			break;
@@ -90,7 +90,7 @@ public class Inhabitant {
 		case 1 :
 			finalLetter = new UrgentLetter(this, receiver, complexeLetter);
 			break;
-		// Pas d'envoi spécial
+		// Pas d'envoi sp��cial
 		case 2 :
 			finalLetter = complexeLetter;
 			break;
@@ -126,7 +126,7 @@ public class Inhabitant {
 
 	/**
 	 * Envoie une lettre de la part de cet habitant.
-	 * @param letter La lettre à envoyer
+	 * @param letter La lettre �� envoyer
 	 */
 	public void sendLetter(Letter<?> letter) {
 		if(this.account.getBalance() >= letter.getCost())
@@ -136,11 +136,11 @@ public class Inhabitant {
 	}
 	
 	/**
-	 * Reçoit la lettre et effectue l'action nécessaire.
-	 * @param letter La lettre reçue par l'habitant.
+	 * Re��oit la lettre et effectue l'action n��cessaire.
+	 * @param letter La lettre re��ue par l'habitant.
 	 */
 	public void receiveLetter(Letter<?> letter) {
-		recieveLetters.add(letter);
+		receiveLetters.add(letter);
 	}
 	
 	/**
@@ -169,7 +169,7 @@ public class Inhabitant {
 	
 	/**
 	 * Retire un montant du compte en banque de l'habitant.
-	 * @param amount Le montant à retirer du compte de l'habitant.
+	 * @param amount Le montant �� retirer du compte de l'habitant.
 	 */
 	public void withdraw(int amount) {
 		this.account.withdraw(amount);
@@ -177,21 +177,21 @@ public class Inhabitant {
 	
 	/**
 	 * Ajoute un montant au compte de l'habitant.
-	 * @param amount Le montant à ajouter au compte de l'habitant.
+	 * @param amount Le montant �� ajouter au compte de l'habitant.
 	 */
 	public void credit(int amount) {
 		this.account.credit(amount);
 	}
 
 	/**
-	 * @return Les lettres reçues par cet habitant.
+	 * @return Les lettres re��ues par cet habitant.
 	 */
 	public ArrayList<Letter<?>> getReceiveLetters() {
 		return receiveLetters;
 	}
 
 	/**
-	 * @param receiveLetters Les lettres qui doivent être délivrée à cet habitant.
+	 * @param receiveLetters Les lettres qui doivent ��tre d��livr��e �� cet habitant.
 	 */
 	public void setReceiveLetters(ArrayList<Letter<?>> receiveLetters) {
 		this.receiveLetters = receiveLetters;

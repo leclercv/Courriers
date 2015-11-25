@@ -50,28 +50,28 @@ public class Main {
 	}
 	
 	/**
-	 * Simule une journée pour une ville et des habitants donnés.
-	 * @param city La ville pour laquelle la journée doit être simulée.
-	 * @param inhabitants Les habitants pour lesquels la journée doit être simulée.
+	 * Simule une journ��e pour une ville et des habitants donn��s.
+	 * @param city La ville pour laquelle la journ��e doit ��tre simul��e.
+	 * @param inhabitants Les habitants pour lesquels la journ��e doit ��tre simul��e.
 	 */
 	private static void doOneDay(City city, ArrayList<Inhabitant> inhabitants, boolean allowSendLetter){
 		Inhabitant sender = null;
 		Inhabitant receiver = null;
 		Letter<?> tmp = null;
-		List<Letter<?>> tmpRecieveLetter = null;
+		List<Letter<?>> tmpReceiveLetter = null;
 		
 		int nbLetterSend = random.nextInt(10);
 		
 		for (Inhabitant inhabitant : inhabitants) {
-			tmpRecieveLetter = inhabitant.getRecieveLetters();
+			tmpReceiveLetter = inhabitant.getReceiveLetters();
 			
-			if(!tmpRecieveLetter.isEmpty()){
-				for (Letter<?> letter : tmpRecieveLetter) {
+			if(!tmpReceiveLetter.isEmpty()){
+				for (Letter<?> letter : tmpReceiveLetter) {
 					System.out.println("<- " + inhabitant.getName()+" receives "+letter.getDescription()+" from "+letter.getSender().getName());
 					letter.doAction();
 					
 				}
-				inhabitant.setRecieveLetters(new ArrayList<Letter<?>>());
+				inhabitant.setReceiveLetters(new ArrayList<Letter<?>>());
 			}
 		}
 		
@@ -94,8 +94,8 @@ public class Main {
 	}
 	
 	/**
-	 * Crée une ville avec un nom aléatoire.
-	 * @return une ville avec un nom aléatoire.
+	 * Cr��e une ville avec un nom al��atoire.
+	 * @return une ville avec un nom al��atoire.
 	 */
 	private static City createCity() {
 		String cityName = "";
@@ -110,9 +110,9 @@ public class Main {
 	}
 	
 	/**
-	 * Crée un tableau composé d'habitants pour la ville passée en paramètre.
-	 * @param city La ville devant être peuplée d'habitants.
-	 * @return inhabitantList La liste des habitants générés pour la ville.
+	 * Cr��e un tableau compos�� d'habitants pour la ville pass��e en param��tre.
+	 * @param city La ville devant ��tre peupl��e d'habitants.
+	 * @return inhabitantList La liste des habitants g��n��r��s pour la ville.
 	 */
 	private static ArrayList<Inhabitant> createInhabitants(City city) {
 		ArrayList<Inhabitant> inhabitantList = new ArrayList<>(CITY_SIZE);
@@ -125,13 +125,13 @@ public class Main {
 	}
 	
 	/**
-	 * Renvoie un boolean permettant de savoir s'il reste des lettres à distribuer dans la ville.
-	 * @return un boolean permettant de savoir s'il reste des lettres à distribuer dans la ville.
+	 * Renvoie un boolean permettant de savoir s'il reste des lettres �� distribuer dans la ville.
+	 * @return un boolean permettant de savoir s'il reste des lettres �� distribuer dans la ville.
 	 */
 	private static boolean stillLetter(ArrayList<Inhabitant> inhabitants){
 		
 		for (Inhabitant hab : inhabitants) {
-			if(!hab.getRecieveLetters().isEmpty()){
+			if(!hab.getReceiveLetters().isEmpty()){
 				return true;
 			}
 		}

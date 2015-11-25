@@ -1,7 +1,6 @@
 package test.entity;
 
 import static org.junit.Assert.*;
-import letters.Letter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +8,7 @@ import org.junit.Test;
 import content.Content;
 import entity.City;
 import entity.Inhabitant;
+import letters.Letter;
 
 public class TestCity {
 
