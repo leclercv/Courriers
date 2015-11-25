@@ -1,5 +1,5 @@
 /**
- * package to manage the test of entities (City, Account and Inhabitant)
- * @author dubois bellamy
+ * Package permettant le test des entités (Villes, Habitants, Comptes en banque).
+ * @author Place Leclercq
  */
 package test.entity;
