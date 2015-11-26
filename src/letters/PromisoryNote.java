@@ -5,26 +5,26 @@ import content.MoneyContent;
 import entity.Inhabitant;
 
 /**
- * Class représentant une lettre de promesse ayant un contenu de type monnétaire.
+ * Class representant une lettre de promesse ayant un contenu de type monnetaire.
  */
 
 public class PromisoryNote extends Letter<MoneyContent> {
 
 /**
 	 * Constructeur de base d'une lettre de promesse.
-	 * @param sender L'habitant ayant envoyé la lettre.
+	 * @param sender L'habitant ayant envoye la lettre.
 	 * @param receiver L'habitant destinataire de la lettre.
-	 * @param content Le contenu monnétaire de la lettre.
+	 * @param content Le contenu monnetaire de la lettre.
 	 */
 	public PromisoryNote(Inhabitant sender, Inhabitant receiver, MoneyContent content) {
 		super(sender, receiver, content);
 	}
 	
 	/**
-	 * Initialise le coût de la lettre.
+	 * Initialise le cout de la lettre.
 	 */
 	protected void initCost() {
-		this.cost = 1;
+		this.cost = 1 + (int) content.getAmount()/100;
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class PromisoryNote extends Letter<MoneyContent> {
 	}
 
 	/**
-	 * Effectue l'action à la réception de la lettre de promesse, c'est à dire recevoir l'argent de la lettre, puis envoyer une lettre de remerciement à l'émetteur.
+	 * Effectue l'action a la reception de la lettre de promesse, c'est a dire recevoir l'argent de la lettre, puis envoyer une lettre de remerciement a l'emetteur.
 	 */
 	@Override
 	public void doAction() {
