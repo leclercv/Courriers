@@ -14,7 +14,7 @@ import entity.Inhabitant;
  *
  */
 public class Main {
-	private static final int CITY_SIZE = 100;
+	private static final int CITY_SIZE = 10;
 	private static final int CITY_NAME_SIZE = 64;
 	private static final String SEPARATOR = "**************************************" ;
 	private static Random random;
@@ -50,9 +50,9 @@ public class Main {
 	}
 	
 	/**
-	 * Simule une journ��e pour une ville et des habitants donn��s.
-	 * @param city La ville pour laquelle la journ��e doit ��tre simul��e.
-	 * @param inhabitants Les habitants pour lesquels la journ��e doit ��tre simul��e.
+	 * Simule une journee pour une ville et des habitants donnes
+	 * @param city La ville pour laquelle la journee doit etre simulee.
+	 * @param inhabitants Les habitants pour lesquels la journee doit etre simulee.
 	 */
 	private static void doOneDay(City city, ArrayList<Inhabitant> inhabitants, boolean allowSendLetter){
 		Inhabitant sender = null;
@@ -67,7 +67,7 @@ public class Main {
 			
 			if(!tmpReceiveLetter.isEmpty()){
 				for (Letter<?> letter : tmpReceiveLetter) {
-					System.out.println("<- " + inhabitant.getName()+" receives "+letter.getDescription()+" from "+letter.getSender().getName());
+					System.out.println("<- " + inhabitant.getName()+" receives the letter "+letter.getId()+" which has the description \""+letter.getDescription()+"\" from "+letter.getSender().getName());
 					letter.doAction();
 					
 				}
@@ -94,8 +94,8 @@ public class Main {
 	}
 	
 	/**
-	 * Cr��e une ville avec un nom al��atoire.
-	 * @return une ville avec un nom al��atoire.
+	 * Cree une ville avec un nom aleatoire.
+	 * @return une ville avec un nom aleatoire.
 	 */
 	private static City createCity() {
 		String cityName = "";
@@ -110,9 +110,9 @@ public class Main {
 	}
 	
 	/**
-	 * Cr��e un tableau compos�� d'habitants pour la ville pass��e en param��tre.
-	 * @param city La ville devant ��tre peupl��e d'habitants.
-	 * @return inhabitantList La liste des habitants g��n��r��s pour la ville.
+	 * Cree un tableau compose d'habitants pour la ville passee en parametre.
+	 * @param city La ville devant etre peuplee d'habitants.
+	 * @return inhabitantList La liste des habitants generes pour la ville.
 	 */
 	private static ArrayList<Inhabitant> createInhabitants(City city) {
 		ArrayList<Inhabitant> inhabitantList = new ArrayList<>(CITY_SIZE);
@@ -125,8 +125,8 @@ public class Main {
 	}
 	
 	/**
-	 * Renvoie un boolean permettant de savoir s'il reste des lettres �� distribuer dans la ville.
-	 * @return un boolean permettant de savoir s'il reste des lettres �� distribuer dans la ville.
+	 * Renvoie un boolean permettant de savoir s'il reste des lettres a distribuer dans la ville.
+	 * @return un boolean permettant de savoir s'il reste des lettres a distribuer dans la ville.
 	 */
 	private static boolean stillLetter(ArrayList<Inhabitant> inhabitants){
 		
