@@ -6,7 +6,7 @@ import java.util.List;
 import letters.Letter;
 
 /**
- * Class représentant une ville.
+ * Class representant une ville.
  * @author Place Leclercq
  *
  */
@@ -26,7 +26,7 @@ public class City
 	
 	/**
 	 * Ajoute la lettre au bureau de poste de la ville.
-	 * @param letter La lettre devant être délivrée dans la ville.
+	 * @param letter La lettre devant etre delivree dans la ville.
 	 */
 	public void sendLetter(Letter<?> letter) {
 		this.postbox.add(letter);
@@ -34,7 +34,7 @@ public class City
 	}
 	
 	/**
-	 * Distribue l'ensemble des lettres devant être distribuée dans la ville.
+	 * Distribue l'ensemble des lettres devant etre distribuee dans la ville.
 	 */
 	@SuppressWarnings("unchecked")
 	public void distributeLetters() {
