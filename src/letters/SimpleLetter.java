@@ -4,14 +4,14 @@ import content.TextContent;
 import entity.Inhabitant;
 
 /**
- * Class représentant une lettre simple avec un contenu textuel.
+ * Class representant une lettre simple avec un contenu textuel.
  */
 public class SimpleLetter extends Letter<TextContent>
 {
 
 	/**
-	 * Constructeur de base d'une lettre simple à contenu textuel.
-	 * @param sender L'habitant ayant envoyé la lettre.
+	 * Constructeur de base d'une lettre simple a contenu textuel.
+	 * @param sender L'habitant ayant envoye la lettre.
 	 * @param receiver L'habitant destinataire de la lettre.
 	 * @param content Le contenu de la lettre.
 	 */
@@ -20,14 +20,14 @@ public class SimpleLetter extends Letter<TextContent>
 	}
 	
 	/**
-	 * Initialise le coût de la lettre.
+	 * Initialise le cout de la lettre.
 	 */
 	protected void initCost() {
 		this.cost = 1;
 	}
 
 	/**
-	 * Effectue l'action nécessaire à la réception de la lettre.
+	 * Effectue l'action necessaire a la reception de la lettre.
 	 */
 	@Override
 	public void doAction() {
@@ -43,4 +43,3 @@ public class SimpleLetter extends Letter<TextContent>
 		return "a simple letter whose content is a text ("+content.getMessage()+")";
 	}
 }
-
