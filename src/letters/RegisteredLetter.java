@@ -4,22 +4,22 @@ import content.TextContent;
 import entity.Inhabitant;
 
 /**
- * Class représentant une lettre envoyée de façon enregistrée.
+ * Class representant une lettre envoyee de facon enregistree.
  */
 public class RegisteredLetter extends Letter<Letter<?>>{
 
 	/**
-	 * Constructeur de base d'une lettre enregistrée.
-	 * @param sender L'habitant ayant envoyé la lettre.
+	 * Constructeur de base d'une lettre enregistree.
+	 * @param sender L'habitant ayant envoye la lettre.
 	 * @param receiver L'habitant destinataire de la lettre.
-	 * @param content La lettre devant être envoyée de façon enregistrée.
+	 * @param content La lettre devant etre envoyee de facon enregistree.
 	 */
 	public RegisteredLetter(Inhabitant sender, Inhabitant receiver, Letter<?> content) {
 		super(sender, receiver, content);
 	}
 	
 	/**
-	 * Initialise le coût de la lettre envoyée de façon enregistrée.
+	 * Initialise le cout de la lettre envoyee de facon enregistree.
 	 */
 	protected void initCost() {
 		this.cost = 15;
@@ -35,7 +35,7 @@ public class RegisteredLetter extends Letter<Letter<?>>{
 	}
 
 	/**
-	 * Effectue l'action de la lettre, y compris l'envoi d'un accusé de réception dû à la nature enregistrée de la lettre.
+	 * Effectue l'action de la lettre, y compris l'envoi d'un accuse de reception du a l'envoi enregistre de la lettre.
 	 */
 	@Override
 	public void doAction() {
@@ -50,3 +50,4 @@ public class RegisteredLetter extends Letter<Letter<?>>{
 		content.doAction();
 	}
 }
+
