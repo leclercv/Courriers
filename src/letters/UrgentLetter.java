@@ -3,25 +3,25 @@ package letters;
 import entity.Inhabitant;
 
 /**
- * Class représentant une lettre à envoyer de façon urgente.
+ * Class representant une lettre a envoyer de facon urgente.
  */
 public class UrgentLetter extends Letter<Letter<?>> {
 	
 	/**
-	 * Constructeur de base d'une lettre à envoyer de façon urgente.
-	 * @param sender L'habitant ayant envoyé la lettre.
+	 * Constructeur de base d'une lettre a envoyer de facon urgente.
+	 * @param sender L'habitant ayant envoye la lettre.
 	 * @param receiver L'habitant destinataire de la lettre.
-	 * @param content La lettre à envoyer de façon urgente.
+	 * @param content La lettre a envoyer de facon urgente.
 	 */
 	public UrgentLetter(Inhabitant sender, Inhabitant receiver, Letter<?> content) {
 		super(sender, receiver, content);
 	}
 	
 	/**
-	 * Initialise le coût initial de la lettre.
+	 * Initialise le cout initial de la lettre.
 	 */
 	protected void initCost() {
-		cost = 2;
+		cost = content.getCost()*2;
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class UrgentLetter extends Letter<Letter<?>> {
 	}
 
 	/**
-	 * Effectue l'action nécessaire à la réception de la lettre envoyée de façon urgente.
+	 * Effectue l'action necessaire a la reception de la lettre envoyee de facon urgente.
 	 */
 	@Override
 	public void doAction() {
