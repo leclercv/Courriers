@@ -1,14 +1,17 @@
 package letters;
+import java.util.Random;
+
 import content.Content;
 import entity.Inhabitant;
 
 /**
- * Class représentant une lettre.
+ * Class representant une lettre.
  * @author Place Leclercq
  *
  * @param <C> Le type de contenu de la lettre.
  */
 public abstract class Letter<C extends Content> implements Content{
+	protected int id;
 	protected Inhabitant sender;
 	protected Inhabitant receiver;
 	protected int cost;
@@ -16,7 +19,7 @@ public abstract class Letter<C extends Content> implements Content{
 	
 	/**
 	 * Constructeur de base d'une nouvelle lettre.
-	 * @param sender L'habitant ayant envoyé la lettre.
+	 * @param sender L'habitant ayant envoye la lettre.
 	 * @param receiver L'habitant destinataire de la lettre.
 	 * @param content Le contenu de la lettre.
 	 */
@@ -24,12 +27,13 @@ public abstract class Letter<C extends Content> implements Content{
 		this.sender = sender;
 		this.receiver = receiver;
 		this.content = content;
+		Random r = new Random();
+		this.id = r.nextInt(10000);
 		this.initCost();
-		sender.getCity().sendLetter(this);
 	}
 	
 	/**
-	 * Initialise le coût initial d'une lettre.
+	 * Initialise le cout initial d'une lettre.
 	 */
 	protected void initCost() {
 		this.cost = 1;		
@@ -44,21 +48,21 @@ public abstract class Letter<C extends Content> implements Content{
 	}
 	
 	/**
-	 * Renvoie le coût de la lettre.
-	 * @return le coût de la lettre.
+	 * Renvoie le cout de la lettre.
+	 * @return le cout de la lettre.
 	 */
 	public int getCost() {
 		return this.cost;	
 	}
 	
 	/**
-	 * Effectue l'action nécessaire à la réception de la lettre.
+	 * Effectue l'action necessaire a  la reception de la lettre.
 	 */
 	public abstract void doAction();
 	
 	/**
-	 * Renvoie l'habitant ayant envoyé la lettre.
-	 * @return l'habitant ayant envoyé la lettre.
+	 * Renvoie l'habitant ayant envoye la lettre.
+	 * @return l'habitant ayant envoye la lettre.
 	 */
 	public Inhabitant getSender() {
 		return this.sender;
@@ -70,6 +74,10 @@ public abstract class Letter<C extends Content> implements Content{
 	 */
 	public Inhabitant getReceiver() {
 		return this.receiver;
+	}
+	
+	public int getId() {
+		return this.id;
 	}
 
 	@Override
@@ -108,4 +116,3 @@ public abstract class Letter<C extends Content> implements Content{
 		return true;
 	}
 }
-
